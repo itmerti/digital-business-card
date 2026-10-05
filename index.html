@@ -7,6 +7,11 @@
   <meta name="description" content="کارت ویزیت دیجیتال مهران اسداله‌پور، توسعه‌دهنده نرم‌افزار، پایتون و اندروید">
   <title>مهران اسداله‌پور | توسعه‌دهنده نرم‌افزار</title>
 
+  <!-- Google Fonts: Vazirmatn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,8 +26,6 @@
       --primary: #24c8db;
       --line: rgba(157, 210, 223, 0.16);
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-      --btn-bg: rgba(255, 255, 255, 0.045);
-      --btn-border: rgba(255, 255, 255, 0.10);
     }
 
     * {
@@ -59,7 +62,7 @@
       overflow: hidden;
     }
 
-    /* ===== هدر (دقیقاً مطابق تصویر) ===== */
+    /* ===== هدر (دقیقاً مطابق تصویر مرجع) ===== */
     .avatar-wrapper {
       position: relative;
       width: 110px;
@@ -115,7 +118,7 @@
       padding: 0 5px;
     }
 
-    /* ===== نوار ۵ دکمه (دقیقاً مطابق تصویر: آیکون بالای برچسب) ===== */
+    /* ===== نوار ۵ دکمه (آیکون بالای برچسب با رنگ‌های اختصاصی) ===== */
     .actions-single-row {
       display: flex;
       justify-content: space-between;
@@ -157,17 +160,17 @@
       transform: scale(0.95);
     }
 
-    /* رنگ‌های اختصاصی هر دکمه مطابق تصویر */
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* رنگ‌های اختصاصی آیکون‌ها */
     .action-btn.call i      { color: #4ade80; }
     .action-btn.whatsapp i  { color: #25d366; }
     .action-btn.telegram i  { color: #38bdf8; }
     .action-btn.vcf i       { color: #fbbf24; }
     .action-btn.share i     { color: #a78bfa; }
-
-    .action-btn:hover {
-      background: rgba(255, 255, 255, 0.06);
-      transform: translateY(-2px);
-    }
 
     /* ===== بخش‌های محتوایی ===== */
     .content {
@@ -224,48 +227,13 @@
       font-size: 0.88rem;
     }
 
-    .contacts {
-      display: grid;
-      gap: 10px;
-    }
-
-    .contact {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 12px 15px;
-      border: 1px solid transparent;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.035);
-      transition: 160ms ease;
-    }
-
-    .contact:hover {
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .contact-label {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .contact-value {
-      overflow: hidden;
-      color: var(--text);
-      font-size: 0.95rem;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
     .ltr {
       direction: ltr;
       unicode-bidi: isolate;
     }
 
     footer {
-      margin-top: 22px;
+      margin-top: 24px;
       font-size: 0.75rem;
       color: #74879a;
       opacity: 0.8;
@@ -287,8 +255,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .action-btn,
-      .contact {
+      .action-btn {
         transition: none;
       }
     }
@@ -297,7 +264,7 @@
 <body>
   <div class="container">
 
-    <!-- ===== هدر (بدون تغییر، دقیقاً مطابق تصویر) ===== -->
+    <!-- ===== هدر ===== -->
     <div class="avatar-wrapper">
       <img src="mehran.jpg" alt="مهران اسداله‌پور" class="avatar"
            onerror="this.src='https://ui-avatars.com/api/?name=Mehran+Asadolahpour&background=24c8db&color=0b1220&size=200'">
@@ -306,9 +273,9 @@
 
     <h1>مهران اسداله‌پور</h1>
     <div class="role">توسعه‌دهنده نرم‌افزار | <span class="ltr">Python &amp; Android</span></div>
-    <div class="bio">طراحی و پیاده‌سازی راهکارهای نرم‌افزاری متمایز، پایکشیدنِ موبایل و اتوماسیون داده‌محور.</div>
+    <div class="bio">طراحی و پیاده‌سازی راهکارهای نرم‌افزاری مقیاس‌پذیر، اپلیکیشن‌های موبایل و اتوماسیون داده‌محور.</div>
 
-    <!-- ===== نوار ۵ دکمه (آیکون + برچسب، مطابق تصویر) ===== -->
+    <!-- ===== نوار ۵ دکمه ===== -->
     <div class="actions-single-row">
       <a href="tel:+989112527017" class="action-btn call" title="تماس تلفنی">
         <i class="fa-solid fa-phone"></i>
@@ -328,11 +295,11 @@
       </button>
       <button onclick="shareCard()" class="action-btn share" title="اشتراک‌گذاری" type="button">
         <i class="fa-solid fa-share-nodes"></i>
-        <span>اشتراک‌گذاری</span>
+        <span>اشتراک</span>
       </button>
     </div>
 
-    <!-- ===== بقیه محتوا ===== -->
+    <!-- ===== بخش‌های محتوا ===== -->
     <div class="content">
       <section class="section">
         <h2>درباره من</h2>
@@ -353,28 +320,6 @@
           <li>توسعه برنامه‌های موبایل</li>
           <li>طراحی و اجرای پروژه‌های نرم‌افزاری</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>اطلاعات تماس</h2>
-        <div class="contacts">
-          <a class="contact" href="tel:+989112527017">
-            <span class="contact-label">موبایل</span>
-            <span class="contact-value ltr">۰۹۱۱۲۵۲۷۰۱۷</span>
-          </a>
-          <a class="contact" href="https://t.me/Mehran_Med" target="_blank">
-            <span class="contact-label">تلگرام</span>
-            <span class="contact-value ltr">@Mehran_Med</span>
-          </a>
-          <a class="contact" href="https://wa.me/989112527017" target="_blank">
-            <span class="contact-label">واتساپ</span>
-            <span class="contact-value ltr">۰۹۱۱۲۵۲۷۰۱۷</span>
-          </a>
-          <a class="contact" href="https://medlina.ir" target="_blank">
-            <span class="contact-label">وب‌سایت رسمی</span>
-            <span class="contact-value ltr">medlina.ir</span>
-          </a>
-        </div>
       </section>
     </div>
 
