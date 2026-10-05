@@ -62,7 +62,7 @@
       overflow: hidden;
     }
 
-    /* ===== هدر (دقیقاً مطابق تصویر مرجع) ===== */
+    /* ===== هدر ===== */
     .avatar-wrapper {
       position: relative;
       width: 110px;
@@ -118,7 +118,7 @@
       padding: 0 5px;
     }
 
-    /* ===== نوار ۵ دکمه (آیکون بالای برچسب با رنگ‌های اختصاصی) ===== */
+    /* ===== نوار ۵ دکمه ===== */
     .actions-single-row {
       display: flex;
       justify-content: space-between;
@@ -165,14 +165,13 @@
       transform: translateY(-2px);
     }
 
-    /* رنگ‌های اختصاصی آیکون‌ها */
     .action-btn.call i      { color: #4ade80; }
     .action-btn.whatsapp i  { color: #25d366; }
     .action-btn.telegram i  { color: #38bdf8; }
     .action-btn.vcf i       { color: #fbbf24; }
     .action-btn.share i     { color: #a78bfa; }
 
-    /* ===== بخش‌های محتوایی ===== */
+    /* ===== بخش‌های محتوایی (فقط درباره من و حوزه‌های فعالیت) ===== */
     .content {
       padding: 14px 6px 6px;
       text-align: right;
@@ -185,7 +184,7 @@
 
     .section:last-child {
       padding-bottom: 0;
-      border-bottom: 0;
+      border-bottom: none;
     }
 
     h2 {
@@ -253,18 +252,12 @@
         font-size: 1.15rem;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      .action-btn {
-        transition: none;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- ===== هدر ===== -->
+    <!-- هدر -->
     <div class="avatar-wrapper">
       <img src="mehran.jpg" alt="مهران اسداله‌پور" class="avatar"
            onerror="this.src='https://ui-avatars.com/api/?name=Mehran+Asadolahpour&background=24c8db&color=0b1220&size=200'">
@@ -275,7 +268,7 @@
     <div class="role">توسعه‌دهنده نرم‌افزار | <span class="ltr">Python &amp; Android</span></div>
     <div class="bio">طراحی و پیاده‌سازی راهکارهای نرم‌افزاری مقیاس‌پذیر، اپلیکیشن‌های موبایل و اتوماسیون داده‌محور.</div>
 
-    <!-- ===== نوار ۵ دکمه ===== -->
+    <!-- دکمه‌ها -->
     <div class="actions-single-row">
       <a href="tel:+989112527017" class="action-btn call" title="تماس تلفنی">
         <i class="fa-solid fa-phone"></i>
@@ -299,7 +292,7 @@
       </button>
     </div>
 
-    <!-- ===== بخش‌های محتوا ===== -->
+    <!-- بدنه محتوا (فقط ۲ بخش) -->
     <div class="content">
       <section class="section">
         <h2>درباره من</h2>
