@@ -55,7 +55,7 @@
       background: var(--card-bg);
       border: 1px solid var(--line);
       border-radius: 28px;
-      padding: 35px 20px 25px;
+      padding: 35px 18px 25px;
       box-shadow: var(--shadow);
       text-align: center;
       position: relative;
@@ -118,49 +118,59 @@
       padding: 0 5px;
     }
 
-    /* ===== نوار ۵ دکمه با طراحی باکس‌های مستقل ===== */
+    /* ===== نوار ۶ دکمه (تک‌سطری و بدون شکست) ===== */
     .actions-single-row {
       display: flex;
+      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: stretch;
-      gap: 7px;
+      gap: 5px;
       margin-bottom: 10px;
       background: #090e17;
-      padding: 9px;
+      padding: 8px 6px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+      width: 100%;
     }
 
     .action-btn {
-      flex: 1;
+      flex: 1 1 0;
       min-width: 0;
-      min-height: 72px;
+      min-height: 68px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 5px;
-      padding: 8px 3px;
+      gap: 4px;
+      padding: 6px 1px;
       background: #141b27;
       border: 1.5px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
+      border-radius: 14px;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       font-weight: 800;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       transition: all 0.22s ease;
+      white-space: nowrap;
+    }
+
+    .action-btn span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .action-btn i {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       line-height: 1;
       transition: transform 0.2s ease;
     }
 
     .action-btn:hover i {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
     .action-btn:active {
@@ -208,7 +218,20 @@
       box-shadow: 0 0 14px rgba(14, 165, 233, 0.3);
     }
 
-    /* ۴. لینکدین */
+    /* ۴. اینستاگرام */
+    .action-btn.instagram span,
+    .action-btn.instagram i {
+      color: #f43f5e;
+    }
+    .action-btn.instagram {
+      border-color: rgba(244, 63, 94, 0.25);
+    }
+    .action-btn.instagram:hover {
+      border-color: #f43f5e;
+      box-shadow: 0 0 14px rgba(244, 63, 94, 0.35);
+    }
+
+    /* ۵. لینکدین */
     .action-btn.linkedin span,
     .action-btn.linkedin i {
       color: #38bdf8;
@@ -221,7 +244,7 @@
       box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
     }
 
-    /* ۵. اشتراک */
+    /* ۶. اشتراک */
     .action-btn.share span,
     .action-btn.share i {
       color: #a855f7;
@@ -234,7 +257,7 @@
       box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
     }
 
-    /* ===== بخش‌های محتوایی (فقط درباره من و حوزه‌های فعالیت) ===== */
+    /* ===== بخش‌های محتوایی ===== */
     .content {
       padding: 14px 6px 6px;
       text-align: right;
@@ -302,18 +325,23 @@
       text-align: center;
     }
 
-    @media (max-width: 400px) {
+    /* بهینه‌سازی برای صفحه‌های فوق‌العاده باریک موبایل */
+    @media (max-width: 380px) {
+      .container {
+        padding: 28px 12px 20px;
+      }
       .actions-single-row {
-        gap: 4px;
-        padding: 6px;
+        gap: 3px;
+        padding: 6px 3px;
       }
       .action-btn {
-        font-size: 0.72rem;
-        min-height: 64px;
-        border-radius: 12px;
+        font-size: 0.65rem;
+        min-height: 60px;
+        border-radius: 10px;
+        padding: 5px 0;
       }
       .action-btn i {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -332,7 +360,7 @@
     <div class="role">توسعه‌دهنده نرم‌افزار | <span class="ltr">Python &amp; Android</span></div>
     <div class="bio">طراحی و پیاده‌سازی راهکارهای نرم‌افزاری مقیاس‌پذیر، اپلیکیشن‌های موبایل و اتوماسیون داده‌محور.</div>
 
-    <!-- دکمه‌های پنج‌گانه کادربندی شده (تماس، واتساپ، تلگرام، لینکدین، اشتراک) -->
+    <!-- دکمه‌های ۶ تایی در یک سطر (تماس، واتساپ، تلگرام، اینستاگرام، لینکدین، اشتراک) -->
     <div class="actions-single-row">
       <a href="tel:+989111298680" class="action-btn call" title="تماس تلفنی">
         <i class="fa-solid fa-phone"></i>
@@ -345,6 +373,10 @@
       <a href="https://t.me/itmerti" target="_blank" class="action-btn telegram" title="تلگرام">
         <i class="fa-brands fa-telegram"></i>
         <span>تلگرام</span>
+      </a>
+      <a href="https://instagram.com/itmerti" target="_blank" class="action-btn instagram" title="اینستاگرام">
+        <i class="fa-brands fa-instagram"></i>
+        <span>اینستا</span>
       </a>
       <a href="https://linkedin.com/in/itmerti" target="_blank" class="action-btn linkedin" title="پروفایل لینکدین">
         <i class="fa-brands fa-linkedin-in"></i>
