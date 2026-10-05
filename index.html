@@ -7,7 +7,7 @@
   <meta name="description" content="کارت ویزیت دیجیتال مهران اسداله‌پور | توسعه‌دهنده نرم‌افزار، پایتون و اندروید">
   <title>مهران اسداله‌پور | کارت ویزیت دیجیتال</title>
 
-  <!-- لود آنلاین و فوق‌العاده سریع فونت وزیرمتن -->
+  <!-- بارگذاری فونت استاندارد و زیبای وزیرمتن از CDN سریع -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 
@@ -15,12 +15,13 @@
     :root {
       color-scheme: dark;
       --bg-gradient: radial-gradient(circle at 10% 20%, #0d1b2a 0%, #070d18 90%);
-      --card-bg: rgba(18, 26, 43, 0.75);
-      --card-border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(18, 26, 43, 0.7);
+      --card-border: rgba(255, 255, 255, 0.1);
       --card-glow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
       
       --primary: #38bdf8;
       --primary-glow: rgba(56, 189, 248, 0.35);
+      --accent: #818cf8;
       
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -28,8 +29,9 @@
       
       --btn-bg: rgba(255, 255, 255, 0.05);
       --btn-border: rgba(255, 255, 255, 0.08);
+      --btn-hover: rgba(56, 189, 248, 0.15);
       
-      /* رنگ‌های متمایز ۵ گانه */
+      /* دکمه‌های اکشن اختصاصی */
       --c-call: #10b981;
       --c-wa: #25d366;
       --c-tg: #229ed9;
@@ -52,12 +54,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 24px 12px;
+      padding: 20px 14px;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* حباب‌های نورانی امبینت پس‌زمینه */
+    /* حباب‌های نور پس‌زمینه Cyber-ambient */
     body::before, body::after {
       content: "";
       position: fixed;
@@ -67,7 +69,7 @@
       filter: blur(100px);
       z-index: 0;
       pointer-events: none;
-      opacity: 0.45;
+      opacity: 0.5;
     }
     body::before {
       background: #0284c7;
@@ -82,25 +84,25 @@
 
     .card-container {
       width: 100%;
-      max-width: 460px;
+      max-width: 440px;
       background: var(--card-bg);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--card-border);
       border-radius: 28px;
       box-shadow: var(--card-glow);
-      padding: 32px 18px 24px;
+      padding: 30px 22px 24px;
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      animation: cardAppear 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes cardAppear {
-      0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+      0% { opacity: 0; transform: translateY(25px) scale(0.97); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
@@ -133,112 +135,101 @@
       box-shadow: 0 0 10px #10b981;
     }
 
-    /* نام و عنوان */
+    /* مشخصات فردی */
     .name {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
       color: #ffffff;
+      letter-spacing: -0.3px;
       margin-bottom: 4px;
     }
 
     .title {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--primary);
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 8px;
     }
 
     .bio {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-      max-width: 92%;
+      line-height: 1.55;
+      margin-bottom: 22px;
+      max-width: 90%;
     }
 
-    /* =========================================================
-       🔥 ردیف اکشن ۵ تایی (حفظ کامل سایز قلم، بدون کم شدن عرض) 🔥
-       ========================================================= */
+    /* ==============================================
+       🔥 نوار اکشن تک‌سطری (Single-row Action Bar) 🔥
+       ============================================== */
     .actions-single-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 6px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 9px;
       width: 100%;
       margin-bottom: 24px;
-      padding: 8px 6px;
-      background: rgba(0, 0, 0, 0.28);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 20px;
     }
 
     .action-item {
-      flex: 1;
-      min-width: 0; /* جلوگیری از سرریز فلکس */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
       text-decoration: none;
       background: var(--btn-bg);
       border: 1px solid var(--btn-border);
       border-radius: 14px;
-      padding: 10px 4px 8px;
+      padding: 10px 2px 8px;
       color: var(--text-main);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
-      font-family: inherit;
+      position: relative;
     }
 
-    /* آیکون داخل کادر */
-    .action-item .action-icon {
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .action-item .action-icon svg {
-      width: 100%;
-      height: 100%;
+    .action-item .icon {
+      width: 22px;
+      height: 22px;
       fill: currentColor;
-      transition: transform 0.2s ease;
+      margin-bottom: 4px;
+      transition: transform 0.25s ease;
     }
 
-    /* متن دکمه (حفظ سایز استاندارد و فونت بولد) */
-    .action-item .action-text {
-      font-size: 0.76rem; /* سایز خوانا بدون کوچک شدن */
-      font-weight: 700;
+    .action-item .label {
+      font-size: 0.68rem;
+      font-weight: 600;
       white-space: nowrap;
-      line-height: 1;
+      letter-spacing: -0.2px;
+      opacity: 0.85;
     }
 
-    /* تم اختصاصی هر دکمه */
-    .btn-call { color: var(--c-call); }
-    .btn-call:hover { background: rgba(16, 185, 129, 0.16); border-color: var(--c-call); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25); }
+    /* رنگ‌های اختصاصی هنگام هاور و فوکوس */
+    .action-item.btn-call { color: var(--c-call); }
+    .action-item.btn-call:hover { background: rgba(16, 185, 129, 0.18); border-color: var(--c-call); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3); }
 
-    .btn-wa { color: var(--c-wa); }
-    .btn-wa:hover { background: rgba(37, 211, 102, 0.16); border-color: var(--c-wa); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25); }
+    .action-item.btn-wa { color: var(--c-wa); }
+    .action-item.btn-wa:hover { background: rgba(37, 211, 102, 0.18); border-color: var(--c-wa); box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3); }
 
-    .btn-tg { color: var(--c-tg); }
-    .btn-tg:hover { background: rgba(34, 158, 217, 0.16); border-color: var(--c-tg); box-shadow: 0 4px 15px rgba(34, 158, 217, 0.25); }
+    .action-item.btn-tg { color: var(--c-tg); }
+    .action-item.btn-tg:hover { background: rgba(34, 158, 217, 0.18); border-color: var(--c-tg); box-shadow: 0 6px 16px rgba(34, 158, 217, 0.3); }
 
-    .btn-vcf { color: var(--c-vcf); }
-    .btn-vcf:hover { background: rgba(245, 158, 11, 0.16); border-color: var(--c-vcf); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25); }
+    .action-item.btn-vcf { color: var(--c-vcf); }
+    .action-item.btn-vcf:hover { background: rgba(245, 158, 11, 0.18); border-color: var(--c-vcf); box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3); }
 
-    .btn-share { color: var(--c-share); }
-    .btn-share:hover { background: rgba(168, 85, 247, 0.16); border-color: var(--c-share); box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25); }
+    .action-item.btn-share { color: var(--c-share); }
+    .action-item.btn-share:hover { background: rgba(168, 85, 247, 0.18); border-color: var(--c-share); box-shadow: 0 6px 16px rgba(168, 85, 247, 0.3); }
 
-    .action-item:hover .action-icon svg {
+    .action-item:hover .icon {
       transform: scale(1.15) translateY(-1px);
     }
     .action-item:active {
       transform: scale(0.94);
     }
 
-    /* خط تقسیم‌کننده */
+    /* خط جداکننده */
     .divider {
       width: 100%;
       height: 1px;
@@ -246,12 +237,12 @@
       margin-bottom: 20px;
     }
 
-    /* لیست کارت‌های پایینی */
+    /* لیست اطلاعات و لینک‌های دیگر */
     .links-list {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 10px;
     }
 
     .link-card {
@@ -260,12 +251,12 @@
       justify-content: space-between;
       background: var(--btn-bg);
       border: 1px solid var(--btn-border);
-      padding: 13px 18px;
-      border-radius: 16px;
+      padding: 12px 16px;
+      border-radius: 14px;
       text-decoration: none;
       color: var(--text-main);
       transition: all 0.25s ease;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .link-card:hover {
@@ -281,14 +272,14 @@
     }
 
     .link-content svg {
-      width: 21px;
-      height: 21px;
+      width: 20px;
+      height: 20px;
       fill: var(--primary);
     }
 
     .link-arrow {
       opacity: 0.4;
-      font-size: 1rem;
+      font-size: 0.9rem;
       transition: transform 0.2s;
     }
 
@@ -298,23 +289,24 @@
       color: var(--primary);
     }
 
+    /* فوتر */
     .footer {
       margin-top: 24px;
       font-size: 0.75rem;
       color: var(--text-dim);
     }
 
-    /* پیام Toast */
+    /* پیام اعلان کپی یا اشتراک */
     .toast {
       position: fixed;
       bottom: 24px;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.92);
       backdrop-filter: blur(12px);
       border: 1px solid var(--primary);
       color: #fff;
-      padding: 10px 22px;
+      padding: 10px 20px;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       z-index: 100;
       opacity: 0;
@@ -332,7 +324,7 @@
 
   <div class="card-container">
     
-    <!-- تصویر آواتار مهران -->
+    <!-- تصویر آواتار -->
     <div class="avatar-wrapper">
       <img src="mehran.jpg" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Mehran'" alt="مهران اسداله‌پور" class="avatar">
       <div class="status-badge" title="آماده همکاری"></div>
@@ -341,58 +333,48 @@
     <!-- اطلاعات هویتی -->
     <h1 class="name">مهران اسداله‌پور</h1>
     <p class="title">توسعه‌دهنده نرم‌افزار | Python & Android</p>
-    <p class="bio">طراحی و پیاده‌سازی راه‌کارهای نرم‌افزاری مقیاس‌پذیر، اپلیکیشن‌های موبایل و اتوماسیون داده‌محور.</p>
+    <p class="bio">طراحی و توسعه راه‌کارهای نرم‌افزاری مقیاس‌پذیر، اپلیکیشن‌های موبایل و اتوماسیون داده‌محور.</p>
 
-    <!-- ====================================================
-         🔥 ۵ دکمه در یک ردیف همراه‌با آیکون‌های وکتور اختصاصی 🔥
-         ==================================================== -->
+    <!-- ==============================================
+         🌟 ۵ دکمه تعاملی دقیقاً در یک ردیف منظم 🌟
+         ============================================== -->
     <div class="actions-single-row">
       
-      <!-- ۱. تماس -->
-      <a href="tel:+989112520846" class="action-item btn-call" title="تماس مستقیم">
-        <span class="action-icon">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.02l-2.21 2.19z"/></svg>
-        </span>
-        <span class="action-text">تماس</span>
+      <!-- ۱. تماس مستقیم -->
+      <a href="tel:+989112520846" class="action-item btn-call" title="تماس تلفنی">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.02l-2.21 2.19z"/></svg>
+        <span class="label">تماس</span>
       </a>
 
       <!-- ۲. واتساپ -->
       <a href="https://wa.me/989112520846" target="_blank" rel="noopener" class="action-item btn-wa" title="ارسال پیام در واتساپ">
-        <span class="action-icon">
-          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.42-.42-.57-.43h-.49c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8.6.26 1.07.42 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
-        </span>
-        <span class="action-text">واتساپ</span>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.42-.42-.57-.43h-.49c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8.6.26 1.07.42 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        <span class="label">واتساپ</span>
       </a>
 
       <!-- ۳. تلگرام -->
       <a href="https://t.me/itmerti" target="_blank" rel="noopener" class="action-item btn-tg" title="ارسال پیام در تلگرام">
-        <span class="action-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-        </span>
-        <span class="action-text">تلگرام</span>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span class="label">تلگرام</span>
       </a>
 
-      <!-- ۴. ذخیره مخاطب -->
-      <button type="button" onclick="downloadVCF()" class="action-item btn-vcf" title="ذخیره شماره در مخاطبین">
-        <span class="action-icon">
-          <svg viewBox="0 0 24 24"><path d="M19 14v5a2 2 0 01-2 2H7a2 2 0 01-2-2v-5M12 3v13m0 0l4-4m-4 4L8 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        </span>
-        <span class="action-text">ذخیره</span>
+      <!-- ۴. ذخیره مخاطب (VCF) -->
+      <button onclick="downloadVCF()" class="action-item btn-vcf" title="افزودن به دفترچه تلفن">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 14v5a2 2 0 01-2 2H7a2 2 0 01-2-2v-5M12 3v13m0 0l4-4m-4 4L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span class="label">ذخیره</span>
       </button>
 
       <!-- ۵. اشتراک‌گذاری -->
-      <button type="button" onclick="shareCard()" class="action-item btn-share" title="اشتراک‌گذاری کارت">
-        <span class="action-icon">
-          <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
-        </span>
-        <span class="action-text">اشتراک</span>
+      <button onclick="shareCard()" class="action-item btn-share" title="اشتراک‌گذاری کارت">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+        <span class="label">اشتراک</span>
       </button>
 
     </div>
 
     <div class="divider"></div>
 
-    <!-- کارت‌های لینک و گیت‌هاب -->
+    <!-- لینک‌های بیشتر و شبکه‌های اجتماعی -->
     <div class="links-list">
       
       <a href="https://github.com/itmerti" target="_blank" rel="noopener" class="link-card">
@@ -423,6 +405,7 @@
   <div id="toast" class="toast">پیام کپی شد!</div>
 
   <script>
+    // سیستم نوتیفیکیشن سریع Toast
     function showToast(msg) {
       const toast = document.getElementById('toast');
       toast.innerText = msg;
@@ -430,6 +413,7 @@
       setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
+    // تولید و دانلود خودکار vCard (.vcf) مخاطب
     function downloadVCF() {
       const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -453,6 +437,7 @@ END:VCARD`;
       showToast("مخاطب برای ذخیره در گوشی آماده شد ✅");
     }
 
+    // اشتراک‌گذاری نیتیو Web Share API
     async function shareCard() {
       const shareData = {
         title: 'کارت ویزیت مهران اسداله‌پور',
@@ -463,8 +448,11 @@ END:VCARD`;
       if (navigator.share) {
         try {
           await navigator.share(shareData);
-        } catch (err) {}
+        } catch (err) {
+          // در صورت انصراف کاربر
+        }
       } else {
+        // اگر مرورگر دسکتاپ بود، لینک را کپی می‌کند
         navigator.clipboard.writeText(window.location.href);
         showToast("لینک کارت کپی شد 📋");
       }
